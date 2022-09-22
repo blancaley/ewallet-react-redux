@@ -7,7 +7,7 @@ import {
   RouterProvider,
   Navigate
 } from 'react-router-dom';
-import LayoutRoot from './routes/LayoutRoot';
+import LayoutRoot from './routes/LayoutRoot/LayoutRoot';
 import Cards from './routes/Cards';
 import AddCard from './routes/AddCard';
 
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
   // When someone visits /, they will automatically be redirected to /cards
   {
     path: "/",
-    element: <Navigate replace to="cards" />,
+    element: <Navigate replace to="/cards" />,
   },
   {
     element: <LayoutRoot/>,

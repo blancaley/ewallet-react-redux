@@ -1,10 +1,12 @@
 import { Outlet } from "react-router-dom";
+import css from './layoutroot.module.css'
 
 const LayoutRoot = () => {
   return (
     <div>
-      LayoutRoot
-      <Outlet />
+      <article className={css.card}>
+        <Outlet />
+      </article>
     </div>
   );
 }

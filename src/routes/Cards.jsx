@@ -1,7 +1,11 @@
+import Card from "../components/Card/Card";
+
 const Cards = () => {
   return (
     <div>
-      Cards
+      <h1>E-wallet</h1>
+      <h2>Active Card</h2>
+      <Card/>
     </div>
   );
 }
