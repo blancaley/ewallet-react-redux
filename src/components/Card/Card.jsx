@@ -1,12 +1,12 @@
-const Card = () => {
+const Card = ({ cardInfo }) => {
   return (
     <article>
-      <p>CardNumber</p>
-      <p>Cardholdername</p>
-      <p>Valid thru</p>
-      <i>Vendor</i>
+      <p>CardNumber: {cardInfo.cardNumber}</p>
+      <p>Cardholder Name {cardInfo.userFirstName} {cardInfo.userLastName}</p>
+      <p>Valid thru: {cardInfo.cardMonth}/{cardInfo.cardYear}</p>
+      <i>Vendor: {cardInfo.vendor}</i>
     </article>
   );
 }
- 
+
 export default Card;
