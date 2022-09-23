@@ -1,8 +1,15 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  addCard
+} from "../components/Card/cardSlice";
 import Card from "../components/Card/Card";
 import CardForm from "../components/Card/CardForm/CardForm";
+import { useNavigate } from "react-router-dom";
 
 const AddCard = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [ cardInfo, setCardInfo ] = useState({
     cardNumber: "XXXXXXXXXXXX",
@@ -11,17 +18,19 @@ const AddCard = () => {
     cardMonth: "MM",
     cardYear: "DD",
     ccv: "",
-    vendor: "",
+    vendor: "Visa",
     isActive: false
   })
 
+  // Update card preview when user fills in form
   const onChange = e => {
     setCardInfo({...cardInfo, [e.target.id]: e.target.value})
   }
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(cardInfo)
+    dispatch(addCard(cardInfo));
+    navigate("/cards");
   }
 
   return (
@@ -31,7 +40,6 @@ const AddCard = () => {
       <Card cardInfo={cardInfo}/>
       
       <CardForm cardInfo={cardInfo} onChange={onChange} handleSubmit={handleSubmit}/>
-
     </div>
   );
 }

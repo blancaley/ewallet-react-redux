@@ -22,7 +22,7 @@ const CardForm = ({ cardInfo, onChange, handleSubmit }) => {
       />
     </div>
     <div>
-      <label htmlFor="cardMonth">Valid Thru</label>
+      <label>Valid Thru</label>
       <input 
         type="number"
         placeholder=""
@@ -42,7 +42,7 @@ const CardForm = ({ cardInfo, onChange, handleSubmit }) => {
       <label htmlFor="ccv">Ccv</label>
       <input 
         type="number"
-        placeholder="222"
+        placeholder=""
         id="ccv"
         value={cardInfo.ccv}
         onChange={onChange}
@@ -53,10 +53,11 @@ const CardForm = ({ cardInfo, onChange, handleSubmit }) => {
       <select 
         id="vendor"
         onChange={onChange}
+        value={cardInfo.vendor}
       >
         <option value="Visa">Visa</option>
         <option value="Mastercard">Mastercard</option>
-        <option value="American">American</option>
+        <option value="American Express">American Express</option>
       </select> 
     </div>
     <button type="submit">Add card</button>
