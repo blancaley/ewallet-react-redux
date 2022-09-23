@@ -15,13 +15,33 @@ const cardSlice = createSlice({
     cards: [
       {    
         cardNumber: 8888888888888,
-        userFirstName: "testname",
+        userFirstName: "ACTIVE",
         userLastName: "lastname",
         cardMonth: 12,
         cardYear: 22,
         ccv: 999,
         vendor: "vendortest",
         isActive: true
+      },
+      {    
+        cardNumber: 8888888888888,
+        userFirstName: "INACTIVE 1",
+        userLastName: "lastname",
+        cardMonth: 12,
+        cardYear: 22,
+        ccv: 999,
+        vendor: "vendortest",
+        isActive: false
+      },
+      {    
+        cardNumber: 8888888888888,
+        userFirstName: "INACTIVE 2",
+        userLastName: "lastname",
+        cardMonth: 12,
+        cardYear: 22,
+        ccv: 999,
+        vendor: "vendortest",
+        isActive: false
       }
     ]
 

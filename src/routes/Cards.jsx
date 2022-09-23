@@ -9,8 +9,8 @@ const Cards = () => {
   // const dispatch = useDispatch();
   // dispatch(getUser);
 
+  // Find active card
   const [activeCard] = cards.filter(card => card.isActive );
- // const inactiveCards = cards.
 
   return (
     <div>
@@ -18,7 +18,12 @@ const Cards = () => {
       <h2>Active Card</h2>
       <Card cardInfo={activeCard}/>
 
-      {/* {cards.map((card, i) => <Card cardInfo={card} key={i}/> )} */}
+      {cards.map((card, i) => {
+        if ( !card.isActive ) {
+          return <Card cardInfo={card} key={i}/>
+        }
+      })
+      }
       
       <Link to="/addcard">
         <button>Add card</button>
