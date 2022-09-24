@@ -2,21 +2,32 @@
 import { useSelector, useDispatch } from "react-redux";
 import Card from "../components/Card/Card";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { getUser } from "../components/User/userSlice";
 
 const Cards = () => {
-  const cards = useSelector((state) => state.card.cards);
+  const user = useSelector(({ userSlice })=> userSlice.user);
 
-  // const dispatch = useDispatch();
-  // dispatch(getUser);
+  const cards = user?.cards;
+  
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUser())
+  }, [])
 
   // Find active card
-  const [activeCard] = cards.filter(card => card.isActive );
+  const [activeCard] = cards?.filter(card => card.isActive ) ?? [];
+
+  if (!activeCard) return null
 
   return (
     <div>
       <h1>E-wallet</h1>
       <h2>Active Card</h2>
-      <Card cardInfo={activeCard}/>
+      <Card 
+        userFullName={user.fullName}
+        cardInfo={activeCard}/>
 
       {cards.map((card, i) => {
         if ( !card.isActive ) {
