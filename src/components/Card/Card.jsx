@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DeleteCardBtn from "./DeleteCardBtn";
 
-const Card = ({ userFullName, cardInfo }) => {
+const Card = ({ cardInfo, userFullName }) => {
 
   const handleMouseOver = () => {
     setIsHovering(true);

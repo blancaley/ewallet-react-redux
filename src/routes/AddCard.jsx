@@ -1,45 +1,46 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import {
-  addCard
-} from "../components/Card/cardSlice";
+import { useSelector } from "react-redux";
 import Card from "../components/Card/Card";
-import CardForm from "../components/Card/CardForm/CardForm";
-import { useNavigate } from "react-router-dom";
+import CardForm from "../components/CardForm/CardForm";
 
 const AddCard = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+ // Get user and cards info from store
+ const user = useSelector(({ userSlice }) => userSlice.user);
+ const cards = user?.cards;
 
   const [ cardInfo, setCardInfo ] = useState({
-    cardNumber: "XXXXXXXXXXXX",
-    userFirstName: "NEW INACTIVE",
-    userLastName: "lastname",
+    cardNumber: "XXXX XXXX XXXX XXXX",
     cardMonth: "MM",
-    cardYear: "DD",
+    cardYear: "YY",
     ccv: "",
-    vendor: "Visa",
+    vendor: "visa",
     isActive: false
   })
 
-  // Update card preview when user fills in form
-  const onChange = e => {
-    setCardInfo({...cardInfo, [e.target.id]: e.target.value})
-  }
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   // User can have max 4 cards
+  //   if (cards.length > 3) {
+  //     return alert("max 4 card")
+  //   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    dispatch(addCard(cardInfo));
-    navigate("/cards");
-  }
+  //   dispatch(addCard(cardInfo));
+  //   navigate("/cards");
+  // }
 
   return (
     <div>
       <h1>Add a new bank card</h1>
       <h2>New card</h2>
-      <Card cardInfo={cardInfo}/>
+      <Card 
+        cardInfo={cardInfo} 
+        userFullName={user?.fullName}/>
       
-      <CardForm cardInfo={cardInfo} onChange={onChange} handleSubmit={handleSubmit}/>
+      <CardForm 
+        cardInfo={cardInfo} 
+        userFullName={user?.fullName} 
+        setCardInfo={setCardInfo}
+      />
     </div>
   );
 }

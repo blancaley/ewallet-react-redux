@@ -33,7 +33,7 @@ const userSlice = createSlice({
   reducers: {
     //actions
     addCard: (state, action) => {
-      state.cards.push(action.payload) 
+      state.user.cards.push(action.payload);
     },
     deleteCard: (state, action) => {
     }
