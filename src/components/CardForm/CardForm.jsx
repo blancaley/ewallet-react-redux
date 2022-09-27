@@ -1,14 +1,18 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import {
-  addCard
-} from "../User/userSlice";
+import { addCard } from "../User/userSlice";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const CardForm = ({ userFullName, setCardInfo }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // Get total cards from store
+ const totalCards = useSelector(({ userSlice }) => userSlice.user)?.cards.length;
+  // User can have max 4 cards
+ const reachedCardLimit = totalCards > 3;
 
   const validationSchema = Yup.object({
     cardNumber: Yup
@@ -46,13 +50,6 @@ const CardForm = ({ userFullName, setCardInfo }) => {
       })
     )
   }
-
-  // const handleSubmit = e => {
-//   e.preventDefault();
-//   // User can have max 4 cards
-//   if (cards.length > 3) {
-//     return alert("max 4 card")
-//   };
 
   const formik = useFormik({
     initialValues: {
@@ -147,7 +144,7 @@ const CardForm = ({ userFullName, setCardInfo }) => {
       </select> 
       {formik.touched.vendor && formik.errors.vendor ? (<div>{formik.errors.vendor}</div>) : null}
     </div>
-    <button type="submit">Add card</button>
+    <button type="submit" disabled={reachedCardLimit}>Add card</button>
   </form>
   );
 }

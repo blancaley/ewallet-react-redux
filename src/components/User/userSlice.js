@@ -7,8 +7,10 @@ export const getUser = createAsyncThunk(
   async () => {
     const userInfo = await fetchUser();
 
+    // Destructure user name
     const { name: { first, last }} = userInfo.results[0];
 
+    // An user can have many cards
     const user = {
       fullName: {
         first: first,

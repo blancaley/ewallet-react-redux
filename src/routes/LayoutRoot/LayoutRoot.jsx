@@ -13,7 +13,7 @@ const LayoutRoot = () => {
   
   return (
     <div>
-      <article className={css.card}>
+      <article className={css.container}>
         <Outlet />
       </article>
     </div>

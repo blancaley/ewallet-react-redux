@@ -3,10 +3,9 @@ import { useSelector } from "react-redux";
 import Card from "../components/Card/Card";
 import CardForm from "../components/CardForm/CardForm";
 
-const AddCard = () => {
+const AddCardPage = () => {
  // Get user and cards info from store
  const user = useSelector(({ userSlice }) => userSlice.user);
- const cards = user?.cards;
 
   const [ cardInfo, setCardInfo ] = useState({
     cardNumber: "XXXX XXXX XXXX XXXX",
@@ -16,17 +15,6 @@ const AddCard = () => {
     vendor: "visa",
     isActive: false
   })
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   // User can have max 4 cards
-  //   if (cards.length > 3) {
-  //     return alert("max 4 card")
-  //   };
-
-  //   dispatch(addCard(cardInfo));
-  //   navigate("/cards");
-  // }
 
   return (
     <div>
@@ -45,4 +33,4 @@ const AddCard = () => {
   );
 }
 
-export default AddCard;
+export default AddCardPage;

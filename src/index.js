@@ -8,8 +8,8 @@ import {
   Navigate
 } from 'react-router-dom';
 import LayoutRoot from './routes/LayoutRoot/LayoutRoot';
-import Cards from './routes/Cards';
-import AddCard from './routes/AddCard';
+import CardsPage from './routes/CardsPage';
+import AddCardPage from './routes/AddCardPage';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -26,11 +26,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/cards",
-        element: <Cards />
+        element: <CardsPage />
       },
       {
         path: "/addcard",
-        element: <AddCard/>
+        element: <AddCardPage/>
       }
     ]
   }
