@@ -12,7 +12,7 @@ const withMenu = (Component) => {
     return (
       <div onMouseOver={()=>setIsHovering(true)} onMouseOut={()=>setIsHovering(false)}>
         <Component {...props} />
-        {isHovering && <CardMenu />}
+        {isHovering && <CardMenu cardInfo={props.cardInfo}/>}
       </div>
     );
   }

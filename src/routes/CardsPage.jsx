@@ -1,4 +1,4 @@
-import { useSelector, useState } from "react-redux";
+import { useSelector } from "react-redux";
 import Card from "../components/Card/Card";
 import { Link } from "react-router-dom";
 import withMenu from "../components/Card/withMenu";
@@ -11,21 +11,12 @@ const CardsPage = () => {
   if (!user) return <div>No user loaded yet.</div>;
 
   // Find active card
-  const [activeCard] = cards?.filter(card => card.isActive ) ?? [];
+  const activeCard = cards?.find(({ isActive }) => isActive ) ?? null;
 
   // User can have max 4 cards
   const limitReached = cards?.length > 3;
 
-  // const [isHovering, setIsHovering] = useState(false);
-
-  // const handleMouseOver = () => {
-  //   setIsHovering(true);
-  // };
-
-  // const handleMouseOut = () => {
-  //   setIsHovering(false);
-  // };
-
+  // Add menu to card component
   const CardWithMenu = withMenu(Card);
 
   return (
@@ -46,7 +37,6 @@ const CardsPage = () => {
             />
         }
       })}
-      
       <Link to="/addcard">
         <button disabled={limitReached}>Add card</button>
       </Link>
