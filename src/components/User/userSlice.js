@@ -17,10 +17,10 @@ export const getUser = createAsyncThunk(
         last: last
       },
       cards: [{
-        cardNumber: 8888888888888,
-        cardMonth: 12,
-        cardYear: 22,
-        ccv: 999,
+        cardNumber: "8888888888888888",
+        cardMonth: "12",
+        cardYear: "22",
+        ccv: "999",
         vendor: "visa",
         isActive: true
       }]
@@ -30,7 +30,7 @@ export const getUser = createAsyncThunk(
 )
 
 const userSlice = createSlice({
-  name: 'card',
+  name: 'user',
   initialState: {},
   reducers: {
     //actions
@@ -38,9 +38,18 @@ const userSlice = createSlice({
       state.user.cards.push(payload);
     },
     deleteCard: (state, { payload }) => {
-      state.user.cards = state.user.cards.filter(({ cardNumber }) => cardNumber !== payload.cardNumber);
+      state.user.cards = state.user.cards
+        .filter(({ cardNumber }) => cardNumber !== payload.cardNumber);
     },
+    switchActive: (state, { payload }) => {
+      state.user.cards
+        .find(({ isActive }) => isActive)
+        .isActive = false;
 
+      state.user.cards
+        .find(({ cardNumber }) => cardNumber === payload.cardNumber)
+        .isActive = true;
+    }
   },
   extraReducers: {
     [getUser.fulfilled]: (state, action) => {
@@ -56,6 +65,6 @@ const userSlice = createSlice({
   }
 })
 
-export const { addCard, targetCard, deleteCard } = userSlice.actions;
+export const { addCard, deleteCard, switchActive } = userSlice.actions;
 
 export default userSlice.reducer;
