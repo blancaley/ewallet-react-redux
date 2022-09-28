@@ -1,6 +1,6 @@
 
 import { useDispatch } from "react-redux";
-import { deleteCard, switchActive } from "../User/userSlice";
+import { deleteCard, switchActiveCard } from "../User/userSlice";
 
 const CardMenu = ({ cardInfo }) => {
   const dispatch = useDispatch();
@@ -10,13 +10,13 @@ const CardMenu = ({ cardInfo }) => {
   }
 
   const toggleActive = () => {
-    dispatch(switchActive(cardInfo))
+    dispatch(switchActiveCard(cardInfo))
   }
 
   return (
     <div>
       <button onClick={handleDelete}>Delete X</button>
-      <button onClick={toggleActive}>Aktivera</button>
+      <button onClick={toggleActive}>Activate Card</button>
     </div>
   )
 }

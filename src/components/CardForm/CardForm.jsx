@@ -32,7 +32,7 @@ const CardForm = ({ userFullName, setCardInfo }) => {
       .required("Required"),
     vendor: Yup
       .string()
-      .oneOf(["visa", "mastercard", "american express"],    "Invalid card vendor")
+      .oneOf(["visa", "mastercard", "americanexpress"],    "Invalid card vendor")
       .required("Required")
   })
 
@@ -81,7 +81,6 @@ const CardForm = ({ userFullName, setCardInfo }) => {
         value={formik.values.cardNumber}
       />
       {formik.touched.cardNumber && formik.errors.cardNumber ? (<div>{formik.errors.cardNumber}</div>) : null}
-
     </div>
     <div>
       <label htmlFor="cardHolderName">Card Holder Name</label>
@@ -140,7 +139,7 @@ const CardForm = ({ userFullName, setCardInfo }) => {
       >
         <option value="visa">Visa</option>
         <option value="mastercard">Mastercard</option>
-        <option value="american express">American Express</option>
+        <option value="americanexpress">American Express</option>
       </select> 
       {formik.touched.vendor && formik.errors.vendor ? (<div>{formik.errors.vendor}</div>) : null}
     </div>

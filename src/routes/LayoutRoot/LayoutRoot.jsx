@@ -12,8 +12,8 @@ const LayoutRoot = () => {
   }, []);
   
   return (
-    <div>
-      <article className={css.container}>
+    <div className={css.layoutContainer}>
+      <article className={css.pageContainer}>
         <Outlet />
       </article>
     </div>

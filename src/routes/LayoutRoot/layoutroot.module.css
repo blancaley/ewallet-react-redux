@@ -1,6 +1,24 @@
-.container {
+.layoutContainer {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.layoutContainer {
   display: flex;
   justify-content: center;
-  border: 1px solid black;
-  max-width: 600px;
+}
+
+.pageContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  background-color: white;
+  padding: 40px 20px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;;
 }

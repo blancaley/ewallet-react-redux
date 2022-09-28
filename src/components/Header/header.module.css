@@ -1,0 +1,13 @@
+.header {
+  text-transform: uppercase;
+}
+.mainTitle {
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.subtitle {
+  font-size: 10px;
+  color: gray;
+  margin-bottom: 10px;
+}

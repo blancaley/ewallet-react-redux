@@ -8,8 +8,9 @@ import {
   Navigate
 } from 'react-router-dom';
 import LayoutRoot from './routes/LayoutRoot/LayoutRoot';
-import CardsPage from './routes/CardsPage';
+import CardsPage from './routes/CardsPage/CardsPage';
 import AddCardPage from './routes/AddCardPage';
+import css from './index.module.css'
 
 const container = document.getElementById('root');
 const root = createRoot(container);

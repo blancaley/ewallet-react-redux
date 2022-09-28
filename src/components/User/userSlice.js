@@ -17,7 +17,7 @@ export const getUser = createAsyncThunk(
         last: last
       },
       cards: [{
-        cardNumber: "8888888888888888",
+        cardNumber: "8888888888888888".match(/.{1,4}/g).join(" "),
         cardMonth: "12",
         cardYear: "22",
         ccv: "999",
@@ -41,7 +41,7 @@ const userSlice = createSlice({
       state.user.cards = state.user.cards
         .filter(({ cardNumber }) => cardNumber !== payload.cardNumber);
     },
-    switchActive: (state, { payload }) => {
+    switchActiveCard: (state, { payload }) => {
       state.user.cards
         .find(({ isActive }) => isActive)
         .isActive = false;
@@ -65,6 +65,6 @@ const userSlice = createSlice({
   }
 })
 
-export const { addCard, deleteCard, switchActive } = userSlice.actions;
+export const { addCard, deleteCard, switchActiveCard } = userSlice.actions;
 
 export default userSlice.reducer;

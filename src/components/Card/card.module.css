@@ -1,3 +1,81 @@
+@font-face {
+  font-family: creditCard;
+  src: url("../../assets/fonts/F25_Bank_Printer.otf");
+  
+}
 .cardWrapper {
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  aspect-ratio: 1.618 / 1;
+  padding: 15px 30px;
+  margin: 0 20px;
+  border-radius: 9px;
+  width: 434px;
+  text-align: left;
+  text-transform: uppercase;
+  background-color: orange;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.cardInfoText {
+  font-family: creditCard;
+  /* background: linear-gradient(to bottom, #cfc09f 22%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 78%); 
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  color: #868686;
+  text-shadow: 1px 1px #73737338, -1px -1px #ffffff61, 0 0 #666666;
+}
+
+/* .cardInfoText:after {
+  background: none;
+  content: attr(data-heading);
+  left: 0;
+  top: 0;
+  z-index: -1;
+  position: absolute;
+  text-shadow: 
+  -1px 0 1px #c6bb9f, 
+  0 1px 1px #c6bb9f, 
+  5px 5px 10px rgba(0, 0, 0, 0.4),
+  -5px -5px 10px rgba(0, 0, 0, 0.4);
+} */
+
+.cardNumber {
+  font-size: 26px;
+}
+
+.description {
+  margin-bottom: 7px;
+  font-size: 10px;
+  color: rgb(92, 92, 92);
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.bottomLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactlessImg {
+  width: 30px;
+  align-self: end;
+}
+
+.chipImg {
+  width: 60px;
+  align-self: start;
+}
+
+.vendorLogo {
+  width: 80px;
+}
+
+.validThru {
+  align-self: end;
 }

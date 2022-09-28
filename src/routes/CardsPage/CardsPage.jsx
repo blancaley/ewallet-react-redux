@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
-import Card from "../components/Card/Card";
+import Card from "../../components/Card/Card";
+import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
-import withMenu from "../components/Card/withMenu";
+import withMenu from "../../components/Card/withMenu";
+import css from "./cardspage.module.css"
 
 const CardsPage = () => {
   // Get user and cards info from store
@@ -21,8 +23,7 @@ const CardsPage = () => {
 
   return (
     <div>
-      <h1>E-wallet</h1>
-      <h2>Active Card</h2>
+      <Header title={"E-wallet"} subtitle={"Active Card"}/>
       <Card 
         cardInfo={activeCard}
         userFullName={user?.fullName}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import Header from "../components/Header/Header";
 import Card from "../components/Card/Card";
 import CardForm from "../components/CardForm/CardForm";
 
@@ -18,8 +19,7 @@ const AddCardPage = () => {
 
   return (
     <div>
-      <h1>Add a new bank card</h1>
-      <h2>New card</h2>
+      <Header title={"Add a new bank card"} subtitle={"New card"}/>
       <Card 
         cardInfo={cardInfo} 
         userFullName={user?.fullName}/>
