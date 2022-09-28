@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { addCard } from "../User/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import css from "./cardform.module.css"
+import ErrorMessage from "./ErrorMessage";
 
 const CardForm = ({ userFullName, setCardInfo }) => {
   const dispatch = useDispatch();
@@ -20,20 +22,20 @@ const CardForm = ({ userFullName, setCardInfo }) => {
       .matches(/^[0-9]+$/, "Must be only digits.")
       .max(16, "Must be 16 digits.")
       .min(16, "Must be 16 digits.")
-      .required("Required"),
+      .required("Card Number–Required"),
     cardMonth: Yup
       .number()
-      .required("Required"),
+      .required("Month–Required"),
     cardYear: Yup
       .number()
-      .required("Required"),
+      .required("Year–Required"),
     ccv: Yup
       .number()
-      .required("Required"),
+      .required("CCV–Required"),
     vendor: Yup
       .string()
       .oneOf(["visa", "mastercard", "americanexpress"],    "Invalid card vendor")
-      .required("Required")
+      .required("Vendor–Required")
   })
 
   const handleOnChange = (e) => {
@@ -68,8 +70,8 @@ const CardForm = ({ userFullName, setCardInfo }) => {
   });  
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-    <div>
+    <form onSubmit={formik.handleSubmit} className={css.cardForm}>
+    <div className={css.inputGroup}>
       <label htmlFor="cardNumber">Card Number</label>
       <input 
         id="cardNumber"
@@ -80,9 +82,9 @@ const CardForm = ({ userFullName, setCardInfo }) => {
         onBlur={formik.handleBlur}
         value={formik.values.cardNumber}
       />
-      {formik.touched.cardNumber && formik.errors.cardNumber ? (<div>{formik.errors.cardNumber}</div>) : null}
+      {formik.touched.cardNumber && formik.errors.cardNumber ? (<ErrorMessage errorName={formik.errors.cardNumber}/>) : null}
     </div>
-    <div>
+    <div className={css.inputGroup}>
       <label htmlFor="cardHolderName">Card Holder Name</label>
       <input 
         id="cardHolderName"
@@ -92,31 +94,33 @@ const CardForm = ({ userFullName, setCardInfo }) => {
         disabled
       />
     </div>
-    <div>
+    <div className={css.inputGroup}>
       <label>Valid Thru</label>
-      <input 
-        id="cardMonth"
-        name="cardMonth"
-        type="number" 
-        placeholder="MM"
-        onChange={(e) => handleOnChange(e)}  
-        onBlur={formik.handleBlur}     
-        value={formik.values.cardMonth}
-      />
-      <input 
-        id="cardYear"
-        name="cardYear"
-        type="number" 
-        placeholder="YY"
-        onChange={(e) => handleOnChange(e)}
+      <div className={css.validThruInput}>
+        <input 
+          id="cardMonth"
+          name="cardMonth"
+          type="number" 
+          placeholder="MM"
+          onChange={(e) => handleOnChange(e)}  
+          onBlur={formik.handleBlur}     
+          value={formik.values.cardMonth}
+        />
+        <input 
+          id="cardYear"
+          name="cardYear"
+          type="number" 
+          placeholder="YY"
+          onChange={(e) => handleOnChange(e)}
         onBlur={formik.handleBlur}
         value={formik.values.cardYear}
         required
       />
-      {formik.touched.cardMonth && formik.errors.cardMonth ? (<div>{formik.errors.cardMonth}</div>) : null}
-      {formik.touched.cardYear && formik.errors.cardYear ? (<div>{formik.errors.cardYear}</div>) : null}
+      </div>
+      {formik.touched.cardMonth && formik.errors.cardMonth ? (<ErrorMessage errorName={formik.errors.cardMonth}/>) : null}
+      {formik.touched.cardYear && formik.errors.cardYear ? (<ErrorMessage errorName={formik.errors.cardYear}/>) : null}
     </div>
-    <div>
+    <div className={css.inputGroup}>
       <label htmlFor="ccv">Ccv</label>
       <input 
         id="ccv"
@@ -126,9 +130,9 @@ const CardForm = ({ userFullName, setCardInfo }) => {
         onBlur={formik.handleBlur}
         value={formik.values.ccv}
       />
-      {formik.touched.ccv && formik.errors.ccv ? (<div>{formik.errors.ccv}</div>) : null}
+      {formik.touched.ccv && formik.errors.ccv ? (<ErrorMessage errorName={formik.errors.ccv}/>) : null}
     </div>
-    <div>
+    <div className={css.inputGroup}>
       <label htmlFor="vendor">Vendor</label>
       <select 
         id="vendor"
@@ -141,9 +145,9 @@ const CardForm = ({ userFullName, setCardInfo }) => {
         <option value="mastercard">Mastercard</option>
         <option value="americanexpress">American Express</option>
       </select> 
-      {formik.touched.vendor && formik.errors.vendor ? (<div>{formik.errors.vendor}</div>) : null}
+      {formik.touched.vendor && formik.errors.vendor ? (<ErrorMessage errorName={formik.errors.vendor}/>) : null}
     </div>
-    <button type="submit" disabled={reachedCardLimit}>Add card</button>
+    <button type="submit" disabled={reachedCardLimit} className={`button ${css.addCardBtn}`}>Add card</button>
   </form>
   );
 }

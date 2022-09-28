@@ -17,8 +17,7 @@
   justify-content: center;
   margin-top: 50px;
   background-color: white;
-  padding: 40px 20px;
-  max-width: 500px;
-  text-align: center;
+  padding: 40px 0;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;;
 }
+
