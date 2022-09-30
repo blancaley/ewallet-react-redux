@@ -6,5 +6,8 @@
 
 body {
   background-color: rgb(240, 242, 245);
+  background: #C9C6C6;
+  background: -webkit-radial-gradient(farthest-corner at 40px 40px, #F1F2F6, #C9C6C6);
+  background: radial-gradient(farthest-corner at 40px 40px, #F1F2F6, #C9C6C6); 
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }

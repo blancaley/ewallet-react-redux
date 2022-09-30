@@ -24,7 +24,6 @@
   border: 0;
   border-radius: 100px;
   transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  transition: all 0.5s ease-out;
 }
 
 .deleteBtn {
@@ -32,8 +31,8 @@
   width: 40px;
   height: 40px;
   font-size: 30px;
-  color: #b10b0b;
-  background-color: grey;
+  color: #ff3f3f;
+  background-color: rgb(214, 214, 214);
 }
 
 .activateBtn {
@@ -60,5 +59,5 @@
 
 .deleteBtn:hover,
 .deleteBtn:focus { 
-  background-color: darkgrey;
+  background-color: rgb(243, 243, 243);
 }

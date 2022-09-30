@@ -14,8 +14,10 @@
   width: 434px;
   text-align: left;
   text-transform: uppercase;
-  background-color: rgb(105, 105, 105);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background: #9977bb;
+  background: -webkit-linear-gradient(to right, #9977bb, #5a96d2);
+  background: linear-gradient(to right, #9977bb, #5a96d2); 
 }
 
 .blue {
@@ -36,7 +38,7 @@
 .description {
   margin-bottom: 7px;
   font-size: 10px;
-  color: rgb(92, 92, 92);
+  color: rgb(0 0 0 / 80%);
 }
 .bottom {
   display: flex;

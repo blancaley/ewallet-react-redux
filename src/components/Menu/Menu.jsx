@@ -1,6 +1,5 @@
-
 import { useDispatch } from "react-redux";
-import { deleteCard, switchActiveCard } from "../User/userSlice";
+import { deleteCard, switchActiveCard } from "../../redux/User/userSlice";
 import css from "./menu.module.css";
 
 const Menu = ({ cardInfo }) => {

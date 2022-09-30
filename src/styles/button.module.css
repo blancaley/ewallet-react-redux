@@ -43,3 +43,8 @@
 .btn:focus {
   box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
 }
+
+.btn:disabled {
+  background-image: linear-gradient(#696969, #3a3a3a);
+  cursor: not-allowed;
+}

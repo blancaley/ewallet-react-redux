@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import css from './layoutroot.module.css'
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getUser } from "../../components/User/userSlice";
+import { getUser } from "../../redux/User/userSlice";
 
 const LayoutRoot = () => {
   const dispatch = useDispatch();

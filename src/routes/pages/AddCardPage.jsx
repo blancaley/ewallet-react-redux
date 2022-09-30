@@ -7,10 +7,23 @@ import css from "./page.module.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretLeft } from "@fortawesome/free-solid-svg-icons";
+// import { useMemo } from "react";
 
 const AddCardPage = () => {
  // Get user and cards info from store
  const user = useSelector(({ userSlice }) => userSlice.user);
+
+  // //Select random color 
+  // const randomColor = useMemo(() => {
+  //   const colors = [
+  //     'blue',
+  //     'purple',
+  //     'orange',
+  //     'black',
+  //     'red'
+  //   ];
+  //   return colors[(Math.random() * colors.length) | 0];
+  // }, [])
 
   const [ cardInfo, setCardInfo ] = useState({
     cardNumber: "XXXX XXXX XXXX XXXX",
@@ -18,7 +31,7 @@ const AddCardPage = () => {
     cardYear: "YY",
     ccv: "",
     vendor: "visa",
-    isActive: false
+    isActive: false,
   })
 
   return (
@@ -30,7 +43,8 @@ const AddCardPage = () => {
       <Header title={"Add a new bank card"} subtitle={"New card"}/>
       <Card 
         cardInfo={cardInfo} 
-        userFullName={user?.fullName}/>
+        userFullName={user?.fullName}
+      />
       
       <CardForm 
         cardInfo={cardInfo} 

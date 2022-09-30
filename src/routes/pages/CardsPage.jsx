@@ -47,7 +47,7 @@ const CardsPage = () => {
         <Link to="/addcard">
           <button disabled={limitReached} className={btnStyle.btn}>Add a new card</button>
         </Link>
-        {limitReached && <p>You have reached the card limit of 4. To add a new card please delete one.</p>}
+        {limitReached && <p>You have reached the card limit of 4. Please delete a card.</p>}
       </div>
     </div>
   );

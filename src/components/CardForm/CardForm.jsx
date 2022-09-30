@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { addCard } from "../User/userSlice";
+import { addCard } from "../../redux/User/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ErrorMessage from "./ErrorMessage";
@@ -21,21 +21,21 @@ const CardForm = ({ userFullName, setCardInfo }) => {
     cardNumber: Yup
       .string()
       .matches(/^[0-9]+$/, "Must be only digits.")
-      .max(16, "Must be 16 digits.")
-      .min(16, "Must be 16 digits.")
+      .max(16, "Card number must be 16 digits.")
+      .min(16, "Card number must be 16 digits.")
       .required("Card Number–Required"),
     cardMonth: Yup
-      .number()
-      .max(2, "Must be 2 digits.")
-      .min(2, "Must be 2 digits.")
+      .string()
+      .max(2, "Month must be 2 digits.")
+      .min(2, "Month must be 2 digits.")
       .required("Month–Required"),
     cardYear: Yup
-      .number()
-      .max(2, "Must be 2 digits.")
-      .min(2, "Must be 2 digits.")
+      .string()
+      .max(2, "Year must be 2 digits.")
+      .min(2, "Year must be 2 digits.")
       .required("Year–Required"),
     ccv: Yup
-      .number()
+      .string()
       .max(3, "Must be 3 digits.")
       .min(3, "Must be 3 digits.")
       .required("CCV–Required"),
