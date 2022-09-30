@@ -30,17 +30,19 @@ const CardsPage = () => {
         userFullName={user?.fullName}
       />
       {/* Show inactive cards */}
-      <div>
+      <ul className={css.cardList}>
       {cards?.map((card, i) => {
         if ( !card.isActive ) {
-          return <CardWithMenu 
-            key={i}
+          return (
+          <li key={i}>
+            <CardWithMenu 
             cardInfo={card}
             userFullName={user?.fullName}
             />
+          </li>)
         }
       })}
-      </div>
+      </ul>
       <div className={css.btnContainer}>
         <Link to="/addcard">
           <button disabled={limitReached} className={btnStyle.btn}>Add a new card</button>

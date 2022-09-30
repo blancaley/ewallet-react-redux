@@ -4,6 +4,9 @@ import Header from "../../components/Header/Header";
 import Card from "../../components/Card/Card";
 import CardForm from "../../components/CardForm/CardForm";
 import css from "./page.module.css";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 
 const AddCardPage = () => {
  // Get user and cards info from store
@@ -20,6 +23,10 @@ const AddCardPage = () => {
 
   return (
     <div className={css.innerContainer}>
+      <Link to="/cards" className={css.backBtn}>
+      <FontAwesomeIcon icon={faCaretLeft}/>
+        Go back
+      </Link>
       <Header title={"Add a new bank card"} subtitle={"New card"}/>
       <Card 
         cardInfo={cardInfo} 

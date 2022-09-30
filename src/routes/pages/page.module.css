@@ -8,3 +8,20 @@
 .btnContainer {
   width: 100%;
 }
+
+.cardList {
+  list-style-type: none;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+a.backBtn {
+  text-decoration: none;
+  color: rgb(85, 85, 85);
+}

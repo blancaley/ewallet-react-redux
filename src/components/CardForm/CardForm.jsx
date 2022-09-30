@@ -26,12 +26,18 @@ const CardForm = ({ userFullName, setCardInfo }) => {
       .required("Card Number–Required"),
     cardMonth: Yup
       .number()
+      .max(2, "Must be 2 digits.")
+      .min(2, "Must be 2 digits.")
       .required("Month–Required"),
     cardYear: Yup
       .number()
+      .max(2, "Must be 2 digits.")
+      .min(2, "Must be 2 digits.")
       .required("Year–Required"),
     ccv: Yup
       .number()
+      .max(3, "Must be 3 digits.")
+      .min(3, "Must be 3 digits.")
       .required("CCV–Required"),
     vendor: Yup
       .string()
@@ -127,6 +133,7 @@ const CardForm = ({ userFullName, setCardInfo }) => {
         id="ccv"
         name="ccv"
         type="number"     
+        placeholder="000"
         onChange={(e) => handleOnChange(e)}   
         onBlur={formik.handleBlur}
         value={formik.values.ccv}
