@@ -1,8 +1,9 @@
 
 import { useDispatch } from "react-redux";
 import { deleteCard, switchActiveCard } from "../User/userSlice";
+import css from "./menu.module.css";
 
-const CardMenu = ({ cardInfo }) => {
+const Menu = ({ cardInfo }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
@@ -14,11 +15,11 @@ const CardMenu = ({ cardInfo }) => {
   }
 
   return (
-    <div>
-      <button onClick={handleDelete}>Delete X</button>
-      <button onClick={toggleActive}>Activate Card</button>
+    <div className={css.menu}>
+      <button onClick={handleDelete} className={css.deleteBtn}>X</button>
+      <button onClick={toggleActive} className={css.activateBtn}>Activate Card</button>
     </div>
   )
 }
  
-export default CardMenu;
+export default Menu;

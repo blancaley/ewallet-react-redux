@@ -4,8 +4,9 @@ import { useDispatch } from "react-redux";
 import { addCard } from "../User/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import css from "./cardform.module.css"
 import ErrorMessage from "./ErrorMessage";
+import css from "./cardform.module.css";
+import btnStyle from "../../styles/button.module.css"
 
 const CardForm = ({ userFullName, setCardInfo }) => {
   const dispatch = useDispatch();
@@ -147,7 +148,7 @@ const CardForm = ({ userFullName, setCardInfo }) => {
       </select> 
       {formik.touched.vendor && formik.errors.vendor ? (<ErrorMessage errorName={formik.errors.vendor}/>) : null}
     </div>
-    <button type="submit" disabled={reachedCardLimit} className={`button ${css.addCardBtn}`}>Add card</button>
+    <button type="submit" disabled={reachedCardLimit} className={btnStyle.btn}>Add card</button>
   </form>
   );
 }

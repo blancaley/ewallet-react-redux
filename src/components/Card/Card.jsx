@@ -4,11 +4,12 @@ import chip from "../../assets/img/chip.png"
 import contactless from "../../assets/img/contactlessIndicator.svg"
 
 const Card = ({ cardInfo, userFullName }) => {
-  const vendorLogo = cardInfo?.vendor;
-  console.log(vendorLogo)
+
+  // const colors = [blue, purple, orange, black, red];
+  // var randomColor = colors[(Math.random() * colors.length) | 0];
 
   return (
-    <article className={css.cardWrapper}>
+    <article className={`${css.card}`}>
       <img 
         src={contactless} 
         className={css.contactlessImg}

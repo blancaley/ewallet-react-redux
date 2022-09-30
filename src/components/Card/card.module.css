@@ -3,45 +3,31 @@
   src: url("../../assets/fonts/F25_Bank_Printer.otf");
   
 }
-.cardWrapper {
+.card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   aspect-ratio: 1.618 / 1;
   padding: 15px 30px;
-  margin: 0 40px;
   margin-bottom: 60px;
   border-radius: 12px;
   width: 434px;
   text-align: left;
   text-transform: uppercase;
-  background-color: orange;
+  background-color: rgb(105, 105, 105);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.blue {
+  composes: card;
+  background-color: rgb(111, 180, 255);
 }
 
 .cardInfoText {
   font-family: creditCard;
-  /* background: linear-gradient(to bottom, #cfc09f 22%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 78%); 
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
-  color: #868686;
-  text-shadow: 1px 1px #73737338, -1px -1px #ffffff61, 0 0 #666666;
+  color: #e2e2e2;
+  text-shadow: -1px -1px #4f4f4f, 1px 1px #ffffff, 0 0 #000000;
 }
-
-/* .cardInfoText:after {
-  background: none;
-  content: attr(data-heading);
-  left: 0;
-  top: 0;
-  z-index: -1;
-  position: absolute;
-  text-shadow: 
-  -1px 0 1px #c6bb9f, 
-  0 1px 1px #c6bb9f, 
-  5px 5px 10px rgba(0, 0, 0, 0.4),
-  -5px -5px 10px rgba(0, 0, 0, 0.4);
-} */
 
 .cardNumber {
   font-size: 26px;
@@ -56,11 +42,13 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 20px;
 }
 
 .bottomLeft {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 .contactlessImg {

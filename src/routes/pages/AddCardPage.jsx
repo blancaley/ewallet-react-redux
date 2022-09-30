@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import Header from "../components/Header/Header";
-import Card from "../components/Card/Card";
-import CardForm from "../components/CardForm/CardForm";
+import Header from "../../components/Header/Header";
+import Card from "../../components/Card/Card";
+import CardForm from "../../components/CardForm/CardForm";
+import css from "./page.module.css";
 
 const AddCardPage = () => {
  // Get user and cards info from store
@@ -18,7 +19,7 @@ const AddCardPage = () => {
   })
 
   return (
-    <div>
+    <div className={css.innerContainer}>
       <Header title={"Add a new bank card"} subtitle={"New card"}/>
       <Card 
         cardInfo={cardInfo} 

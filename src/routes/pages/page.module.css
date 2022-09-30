@@ -1,0 +1,10 @@
+.innerContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+}
+
+.btnContainer {
+  width: 100%;
+}

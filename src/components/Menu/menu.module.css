@@ -1,0 +1,64 @@
+.cardWithMenu {
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  padding: 10px;
+  width: 100%;
+}
+
+.menuBtn {
+  cursor: pointer;
+  font-weight: 600;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+  border: 0;
+  border-radius: 100px;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  transition: all 0.5s ease-out;
+}
+
+.deleteBtn {
+  composes: menuBtn;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  color: #b10b0b;
+  background-color: grey;
+}
+
+.activateBtn {
+  composes: menuBtn;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #00951e;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+
+}
+
+.activateBtn:hover,
+.activateBtn:focus { 
+  background-color: #00c728;
+  color: #ffffff;
+}
+
+.deleteBtn:hover,
+.deleteBtn:focus { 
+  background-color: darkgrey;
+}

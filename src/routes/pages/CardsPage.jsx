@@ -2,8 +2,9 @@ import { useSelector } from "react-redux";
 import Card from "../../components/Card/Card";
 import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
-import withMenu from "../../components/Card/withMenu";
-import css from "./cardspage.module.css"
+import withHoverMenu from "../../components/Menu/withHoverMenu";
+import css from "./page.module.css";
+import btnStyle from "../../styles/button.module.css"
 
 const CardsPage = () => {
   // Get user and cards info from store
@@ -19,16 +20,17 @@ const CardsPage = () => {
   const limitReached = cards?.length > 3;
 
   // Add menu to card component
-  const CardWithMenu = withMenu(Card);
+  const CardWithMenu = withHoverMenu(Card);
 
   return (
-    <div>
+    <div className={css.innerContainer}>
       <Header title={"E-wallet"} subtitle={"Active Card"}/>
       <Card 
         cardInfo={activeCard}
         userFullName={user?.fullName}
       />
       {/* Show inactive cards */}
+      <div>
       {cards?.map((card, i) => {
         if ( !card.isActive ) {
           return <CardWithMenu 
@@ -38,10 +40,13 @@ const CardsPage = () => {
             />
         }
       })}
-      <Link to="/addcard">
-        <button disabled={limitReached}>Add card</button>
-      </Link>
-      {limitReached && <p>You have reached the card limit of 4. To add a new card please delete one.</p>}
+      </div>
+      <div className={css.btnContainer}>
+        <Link to="/addcard">
+          <button disabled={limitReached} className={btnStyle.btn}>Add a new card</button>
+        </Link>
+        {limitReached && <p>You have reached the card limit of 4. To add a new card please delete one.</p>}
+      </div>
     </div>
   );
 }
